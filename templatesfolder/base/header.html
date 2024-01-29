@@ -1,0 +1,437 @@
+{% load static %}
+<header 
+id="header"
+class="
+shadow-[0_0_5px_gray]
+h-[77px]
+pl-10
+
+">
+
+<section class="main 
+w-[100%]
+flex relative justify-between pr-10 items-center
+flex-row-reverse
+h-[100%]
+">
+  <style>
+    .not_mobile li.itemm{
+      list-style: none;
+      text-underline-offset: 10px;
+      transition: .2s;
+
+    }
+    .for_mobile,.not_mobile a{
+      color: #5B3315;
+      transition: .4s;
+    }
+    .for_mobile,.not_mobile a:hover{
+      color: #B58B57;
+    }
+    .not_mobile li.itemm:hover{
+      text-decoration: underline;
+
+    }
+    .the_chosen.itemm{
+      text-decoration: underline;
+      transition: .2s;
+
+    }
+    .lang{
+      list-style: none;
+    }
+
+</style>
+  <div class="logo flex items-center justify-center h-[120px]">
+    <img 
+    {% if lang == 'EN' %}
+      
+    src="{% static 'media/WhatsApp Image 2024-01-29 at 8.46.20 PM.jpeg' %}"
+    {% endif %}
+    {% if lang == 'AR' %}
+      
+    src="{% static 'media/WhatsApp Image 2024-01-29 at 8.46.20 PM.jpeg' %}" 
+    {% endif %}
+
+
+    class="
+
+    min-w-[105px]
+    max-w-[105px]
+    h-[50px]
+
+    "
+    alt="Logo">
+  </div>
+
+
+  <div class="not_mobile
+  
+  hidden
+  md:flex 
+  gap-6
+  font-sans
+  items-center  
+  ">
+  
+    
+    <!--  -->
+    <li class="
+    
+    {% if chosen == 'about us' %}
+    the_chosen
+    {% endif %}  
+    itemm">
+      {% if lang == "AR" %}
+      <a href="{% url 'core:about us' 'AR' %}">
+
+          من نحن  
+
+        </a>
+        {% endif %}
+        {% if lang == "EN" %}
+        <a href="{% url 'core:about us' 'EN' %}">
+  
+            About us  
+          </a>
+        {% endif %}
+    </li>
+    <!--  -->
+    <li class="itemm
+    {% if chosen == 'services' %}
+    the_chosen
+    {% endif %} 
+    ">
+      {% if lang == "AR" %}
+      <a href="{% url 'core:services' 'AR' %}">
+          خدماتنا 
+        </a>
+        {% endif %}
+        {% if lang == "EN" %}
+        <a href="{% url 'core:services' 'EN' %}">
+            Services 
+          </a>
+        {% endif %}
+        
+    </li>
+    <!--  -->
+    <li class="itemm
+    {% if chosen == 'business_school' %}
+    the_chosen
+    {% endif %} 
+    ">
+      {% if lang == "AR" %}
+      <a href="#">
+          المدونة     
+        </a>
+        {% endif %}
+        {% if lang == "EN" %}
+        <a href="#">
+         Blog 
+          </a>
+        {% endif %}
+        
+      </li>
+    <!--  -->
+    <li class="itemm
+    {% if chosen == 'Contact' %}
+    the_chosen
+    {% endif %} 
+    ">
+
+      {% if lang == "AR" %}
+
+      <a href="{% url 'core:contact' 'AR' %}">
+        تواصل معنا    
+      </a>
+        {% endif %}
+        {% if lang == "EN" %}
+        <a href="{% url 'core:contact' 'EN' %}">
+          Contact 
+          </a>
+        {% endif %}
+
+      
+    </li>
+    <li class="
+    {% if chosen == 'landing' %}
+    the_chosen
+    {% endif %}  
+    
+    
+     itemm">
+      {% if lang == "AR" %}
+      <a href="{% url 'core:landing' 'AR' %}">
+        
+           الرئيسية
+        {% endif %}
+        {% if lang == "EN" %}
+        <a href="{% url 'core:landing'  %}">
+          
+          Home  
+          {% endif %}
+          
+        </a> 
+        
+    </li class>
+    <li class="lang">
+      
+      <!--  -->
+
+
+      <div class=" bg-white  flex flex-col justify-center ">
+        <div class="flex items-center justify-center ">
+          <div class=" relative inline-block text-left dropdown">
+            <span class="rounded-md shadow-sm"
+              ><button class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white  rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800" 
+              type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
+                <span>{{lang}}</span>
+                <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button
+            ></span>
+            <div class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
+              <div class="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none" aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
+                
+                <div class="py-1">
+                  <a href="/EN" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left   hover:bg-gray-200"  role="menuitem" >English</a>
+                  <a href="/AR" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left   hover:bg-gray-200"  role="menuitem" >العربية</a>
+                  
+                </div>
+              </div>
+          </div>
+        </div>              
+        </div>
+        
+        <style>
+        .dropdown:focus-within .dropdown-menu {
+          opacity:1;
+          transform: translate(0) scale(1);
+          visibility: visible;
+        }
+            </style>
+      <!--  -->
+    </li>
+  </div>
+  <div class="hidden
+  md:flex pl-5 mr-10 ">
+  {% if lang == 'EN' %}
+    <a href="#" class="hover:bg-[#5B3315]  bg-[#B58B57] rounded px-10 py-2 text-white transition-all delay-150">
+      Call us
+    </a>
+  {% endif %}
+  {% if lang == 'AR' %}
+    
+  <a href="#"  class="hover:bg-[#5B3315]  bg-[#B58B57] rounded px-10 py-2 text-white transition-all delay-150">
+    اتصل بنا
+  </a>
+  {% endif %}
+  </div>
+  <div class="for_mobile md:hidden flex">
+    <div>
+      <button class="relative group this_is_me">
+        <div class="relative flex overflow-hidden items-center justify-center rounded-full w-[20px] h-[50px] transform transition-all ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md">
+          <div class="flex flex-col justify-between w-[10px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden">
+            <div class="bg-black h-[2px] w-3 transform transition-all duration-300 origin-left group-focus:translate-y-6 delay-100"></div>
+            <div class="bg-black h-[2px] w-3 rounded transform transition-all duration-300 group-focus:translate-y-6 delay-75"></div>
+            <div class="bg-black h-[2px] w-3 transform transition-all duration-300 origin-left group-focus:translate-y-6"></div>
+
+            <div class="absolute items-center justify-between transform transition-all duration-500 top-2.5 -translate-x-10 group-focus:translate-x-0 flex w-0 group-focus:w-12">
+              <div class="absolute bg-black h-[2px] w-5 transform transition-all duration-500 rotate-0 delay-300 group-focus:rotate-45"></div>
+              <div class="absolute bg-black h-[2px] w-5 transform transition-all duration-500 -rotate-0 delay-300 group-focus:-rotate-45"></div>
+            </div>
+          </div>
+        </div>
+      </button>
+
+      <div class="content hidden md:flex">
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+  <!--  Drop Down-->
+<style>
+  .th_boss ul li{
+    text-underline-offset: 10px;
+
+  }
+  .th_boss ul li:hover{
+    text-decoration: underline;
+  }
+  .the_chosen{
+    text-decoration: underline;
+
+  }
+</style>
+</section>
+  <section class="bg-gradient-to-t from-gray-200 to-white absolute md:hidden  w-[100%] hidden th_boss"  >
+    <ul class="px-4 gap-5 font-normal flex flex-col py-4">
+      <li class="
+    {% if chosen == 'landing' %}
+    the_chosen
+    {% endif %}  
+    
+    
+     itemm">
+      {% if lang == "AR" %}
+      <a href="{% url 'core:landing' 'AR' %}">
+        
+          الصفحة الرئيسية
+        {% endif %}
+      </a> 
+      {% if lang == "EN" %}
+      <a href="{% url 'core:landing'  %}">
+        
+      Home  
+        {% endif %}
+      
+        
+    </li class>
+      <!--  -->
+      <li class="
+    
+    {% if chosen == 'about us' %}
+    the_chosen
+    {% endif %}  
+    itemm">
+      {% if lang == "AR" %}
+      <a href="{% url 'core:about us' 'AR' %}">
+
+          من نحن  
+
+        </a>
+        {% endif %}
+        {% if lang == "EN" %}
+        <a href="{% url 'core:about us' 'EN' %}">
+  
+            About us  
+          </a>
+        {% endif %}
+    </li>
+      <!--  -->
+      <li class="itemm
+    {% if chosen == 'services' %}
+    the_chosen
+    {% endif %} 
+    ">
+      {% if lang == "AR" %}
+      <a href="{% url 'core:services' 'AR' %}">
+          خدمات 
+        </a>
+        {% endif %}
+        {% if lang == "EN" %}
+        <a href="{% url 'core:services' 'EN' %}">
+            Services 
+          </a>
+        {% endif %}
+        
+    </li>
+      <!--  -->
+      <li class="itemm
+    {% if chosen == 'business_school' %}
+    the_chosen
+    {% endif %} 
+    ">
+      {% if lang == "AR" %}
+      <a href="#">
+          إدارة الأعمال    
+        </a>
+        {% endif %}
+        {% if lang == "EN" %}
+        <a href="#">
+          Business School 
+          </a>
+        {% endif %}
+        
+      </li>
+      <!--  -->
+      <li class="itemm
+    {% if chosen == 'Contact' %}
+    the_chosen
+    {% endif %} 
+    ">
+
+      {% if lang == "AR" %}
+
+      <a href="{% url 'core:contact' 'AR' %}">
+        تواصل معنا    
+      </a>
+        {% endif %}
+        {% if lang == "EN" %}
+        <a href="{% url 'core:contact' 'EN' %}">
+          Contact 
+          </a>
+        {% endif %}
+
+      
+    </li>
+      <!--  -->
+
+
+      <div class="   flex flex-col justify-center ">
+        <div class="flex items-center text-right">
+          <div class=" relative inline-block text-left dropdown">
+            <span class="rounded-md shadow-sm"
+              >
+              <button class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white  rounded-md hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800" 
+                type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
+                  <span>{{ lang }}</span>
+                  <svg class="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+
+                  </path>
+                  </svg>
+              </button>
+            </span>
+            <div class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
+              
+              <div class="absolute left-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none" aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
+                
+                <div class="py-1">
+                  <a href="/" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left   hover:bg-gray-200"  role="menuitem" >English</a>
+                  <a href="/AR" tabindex="0" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left   hover:bg-gray-200"  role="menuitem" >العربية</a>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>                
+      </div>
+        
+        <style>
+        .dropdown:focus-within .dropdown-menu {
+          opacity:1;
+          transform: translate(0) scale(1);
+          visibility: visible;
+        }
+            </style>
+    </ul>
+  </section>
+
+</header>
+
+<script>
+  let btn = document.querySelector('.this_is_me')
+  let is_foucased = false
+  let the_boss    = document.querySelector(".th_boss")
+  btn.addEventListener('click', ()=>{
+    if (is_foucased){
+      btn.blur()
+      the_boss.classList.add('hidden')
+
+      is_foucased = !is_foucased
+
+    }else{
+
+      btn.focus()
+      the_boss.classList.remove('hidden')
+      is_foucased = !is_foucased
+    }
+
+  })
+</script>

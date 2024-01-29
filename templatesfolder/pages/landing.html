@@ -1,0 +1,119 @@
+{% extends "base/index.html" %}
+{% load static %}
+
+
+{% block title %}Welcome{% endblock title %}
+
+
+{% block content %}
+<style>
+section.kkkkk{
+
+  background: linear-gradient(rgba(3, 3, 3, 0.63), rgba(0, 0, 0, 0.623)),  no-repeat url("{% static 'media/man-working.jpg' %}") ;
+  background-size: cover;
+}
+
+</style>
+  <section class="
+  kkkkk
+  flex justify-center 
+  items-center
+  h-screen
+  
+">
+    <div class="flex flex-col items-center">
+
+      <h2 class="
+      text-white
+      font-[800]
+      text-[53px]
+      px-[10px]
+      py-[5px]
+      
+      ">
+      Welcome to Fonon company
+    </h2>
+    
+    <p class="mb-[30px]  text-[15px] w-[40vw] text-center text-white">
+      When you need to carry out some decoration and designs of wood in homes or in wood shops. You find yourself in need of an excellent company to implement the required decorations on the drawings and the required sizes to match the appropriate place and space.
+    </p>
+    <div>
+
+      <a href="#" class="text-white border border-#B58B57 hover:bg-[#B58B57] hover:border-none transition-all text-[15px] font-[400] py-[12px]  px-[35px]  rounded border-dashed duration-[.4s]">
+        About us
+      </a>
+    </div>
+  </div>
+
+  </section>
+  <section class="
+  cards
+  flex
+  flex-wrap
+  gap-20
+  py-10
+  px-60
+  ">
+
+    <style>
+
+      a.card{
+        background-color:  #b58b5783;
+        transition: .4s;
+
+      }
+
+      div.kids{
+        
+       
+        
+        transition: .4s;
+
+      }
+
+      a.card:hover div.kids{
+        z-index: 50000;
+        background: #b58b57 !important;
+        transition: .4s;
+
+      }
+    </style>
+
+    {% for i in items  %}
+    
+      <a  href="{% url 'core:item-detail' lang i.pk %}"  class="card  text-white w-[200px] h-[200px] relative rounded-xl " >
+        <div style="background: url({{i.small_photo.url}});filter: blur(1px);
+        -webkit-filter: blur(1px); background-size:cover;" class="kids  rounded-xl h-[100%] w-[100%]"></div>
+
+
+        <div class="absolute text-center w-[100%] top-2 flex items-center flex-col">
+          <h3 class="text-[18px] font-[500]">
+          {% if lang == 'EN' %}
+
+            {{ i.name_english}}
+            
+          {% endif %}
+          {% if lang == 'ar' %}
+            {{ i.name_arabic }}
+          {% endif %}
+
+          
+          </h3>
+          <p>
+            {% if lang == 'EN' %}
+              
+              {{i.description_english|truncatechars:60 }}
+            {% endif %}
+            {% if lang == 'AR' %}
+              {{ i.description_arabic }}
+            {% endif %}
+          </p>
+        </div>
+
+        
+      </a>
+    {% endfor %} 
+      
+
+  </section>
+{% endblock content %}
